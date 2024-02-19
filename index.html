@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<script src="https://kit.fontawesome.com/7a43d702a5.js" crossorigin="anonymous"></script>	
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="icon" href="media/icono.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<audio id="errorSound" src="media/Cancelar invitacion.mp3" style="display: none;"></audio>
+	<title>My Passwords</title>
+</head>
+<body>
+		   <div class="Contenedor">
+
+		   	     
+	  <div class="contentFor" id="contentGenrator" >
+	<p id="creator">Dcode</p>
+		<div id="sobrePoner" style="display: none;" class="sobreponerReponsive">
+<a href="https://dcode463.github.io/Mydata/" class="pageInfo"><i class="fa-solid fa-shield-halved"></i></a>
+	<div id="alertCommit" style="display: none;">
+		<div style="text-align: center;" id="commentALERT">	Ups, ese Comentario ya Existe</div> <i style="margin: 5px; " class="fa-solid fa-circle-exclamation"></i>
+		</div>
+		</div>
+	<button id="buttonMenuKey"><i class="fa-solid fa-book-bookmark"></i></button>
+	  	<div class="config" id="configID">  
+
+	  		   <p style="text-align: center; margin-bottom: 10px;">Configuracion</p>
+	
+	  		<input autocomplete="off" type="checkbox" id="checkboxMayusculas" name="" checked="true">
+	  		<label id="mayusculasP">Mayusculas</label>
+	  		    <br>
+	  		     <input autocomplete="off" type="checkbox"  id="checkboxMinusculas" name="">
+	  		    <label id="minusculasP">Minusculas</label>
+	  		    <br>
+	  		     <input autocomplete="off" type="checkbox" id="checkboxNumeros" name="">
+	  		    <label  id="numerosP">Numeros</label>
+	  		    <br>
+	  		       <input  autocomplete="off" type="checkbox" id="checkboxLestrasEspeciales" name="">
+	  		    <label id="letrasExtrasP">Signos</label>
+	  		    <!-- <hr style="width: 100%;text-align: center; display: flex; justify-content: center;align-items: center;color:white;padding: 2px;background-color: white;"> -->
+	  		    <br>
+	  		    <br>
+              
+				  <input  autocomplete="off" type="checkbox" id="checkboxNameOther" name="">
+	  		    <label id="nameOther">Personalizar</label> <input type="text" id="inputNameOther" style="display: none;" placeholder="Escriba algo aqui ..." autocomplete="off">
+           <div class="configurarPersonalizacion" id="containerConfigPesonalization">	   <div class="containerConfigcustomizations">
+	<div class="containerInputsConfig">
+		<label>Codificar</label>
+		<input type="checkbox" checked="true" id="checkboxEncode" autocomplete="off">
+	</div>
+	<div class="containerInputsConfig">
+		<label>Binario</label>
+		<input type="checkbox"  id="checkboxBinari" autocomplete="off">
+	</div>
+	<!-- beta a un es un prototipo pero funcional. display block para utilizar -->
+	<div class="containerInputsConfig" style="display:none;"> 
+		<label>Traductor Binario</label>
+		<input type="checkbox" id="checkboxBinariTraductor" autocomplete="off">
+	</div>
+		   </div></div>
+	
+	    <label style="margin-top:30px; display: block;">Caracteres : <b id="rangeP">0</b></label>
+	    <input type="range" min="4" max="64" id="rangeInput" autocomplete="off" value="0" style="width:50%;" name="">
+	    <br>
+	<div id="passwordSecurity">
+	 <div id="rangeSecurity"></div> <div id="commentSegurity">Encerio? hasta mi abuela te puede crakear</div>
+	</div>
+	    <button class="buttonGuardar" id="aplicarCambios" style="display: none;">Aplicar</button>
+<br><br>
+	 </div>
+	 <div class="contentGenratorValue" id="contentValue">
+	 	<p id="pAlert" style=" width: auto;">Hola, Primero has la configuracion despues aplica los cambios</p>
+	 	   <input type="hidden" value="" placeholder="Ingresa el texto que desea incluir">
+<div class="containerOfButton" id="prompButtons" style="opacity: 0.3;"><button class="buttons" id="buttonCopiar" style="display: none;">copiar  <i class="fa-sharp fa-solid fa-copy"></i></button><p id="pCopiar"></p>
+	<button class="buttons" id="guardar">Guardar <i class="fa-solid fa-file-arrow-up"></i></button>
+	<button class="buttons" id="regenerar">Regenerar <i class="fa-solid fa-rotate"></i></i></button></div>
+	 	   <div id="itemPassword" style="display: none;"><p id="resultado" spellcheck="false"></p></div>
+	 </div>
+
+	 <!-- ////////////////////////////////////////////////// container key -->
+	 <div id="containerView" style="display: none;">
+		<p id="passwordView"></p><div class="prompts"><button class="buttons" id="copiarView">copiar <i class="fa-solid fa-copy"></i></button><button class="buttons" id="borrarView">Borrar <i class="fa-solid fa-trash"></i></button><button class="buttons" id="exitContainerView"> <i class="fa-solid fa-arrow-right-from-bracket"></i></button></div>
+  </div>
+                <div id="containerKeys" style="display: none;" class="two mininizar">
+<button id="closeContainerKey"> <img src="media/icons/close.png" alt=""></button>
+<div id="noResults" style="display: none;"><p id="textNoResults">No hay ningun resultado</p></div>
+<div id="noKeys" style="display: none;"><img id="noneKeyGif" src="media/errorAnimation.png" alt=""><p id="alertNoKeys">Ups, no has registrado ninguna contraseña</p></div>
+<div id="navOfSearchKey">
+<div class="containerInputSearch">
+<input type="text" placeholder="Buscar" id="searchInput"> 
+</div>
+</div>
+<div class="containerPush">
+<div id="pushContainer"></div>
+</div>
+</div>
+	<!-- /////////////////////////////  container save key -->
+
+	<div id="containerSave" style="display: none;" class="inactive">
+		
+<div class="containerInputsSave">
+   <input  type="text" placeholder="Password" id="PasswordOfSave">
+   <input  type="text" placeholder="Comentario" id="commitOfSave">
+</div>
+<button id="saveConfirm" class="buttonsOfPromtsSave">Guardar</button>
+<button id="saveCancel"  class="buttonsOfPromtsSave">Cancelar</button>
+
+	</div>
+	</div>
+		   </div>
+<script type="text/javascript" src="codigo.js"></script>
+</body>
+</html>
