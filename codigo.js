@@ -358,7 +358,7 @@ resultado.innerHTML = '';
   else if(valorRango <= 4 ) {
 rangeSegurity.style.width = '5%';
 rangeSegurity.style.background = 'red';
-commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Hasta tu abuela te hackea'
+commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Seguridad Baja'
 
   }
   else if (valorRango  >= 5 && valorRango < 12)
@@ -403,7 +403,7 @@ commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"><
 		if(rangoNameInput <= 4 ) {
 			rangeSegurity.style.width = '5%';
 			rangeSegurity.style.background = 'red';
-			commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Hasta tu abuela te hackea'
+			commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Seguridad baja'
 			
 			  }
 			  else if (rangoNameInput  >= 5 && rangoNameInput < 12)
