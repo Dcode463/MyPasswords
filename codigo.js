@@ -136,15 +136,15 @@ rango.addEventListener('input', actulizaraRango);
 
 actulizaraRango();
 
-mayusculasP.innerHTML = ` Listo | <P style ="color:grey; display:inline-block; font-size :12px;">MAYUSCULAS : ABC</P>`;
+mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
 
 
 chexboxMayusculas.addEventListener('change', function(){ 
 	if (chexboxMayusculas.checked){
-		    mayusculasP.innerHTML = ` Listo | <P style ="color:grey; display:inline-block; font-size :12px;">MAYUSCULAS : ABC</P>`;
+		    mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
 		    mayusculas = true;
 	}else{
-		mayusculasP.textContent = "Mayusculas";
+		mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
 		mayusculas = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked) 	validor();
@@ -152,10 +152,10 @@ chexboxMayusculas.addEventListener('change', function(){
 })
 chexboxMinusculas.addEventListener('change', function(){
 	if (chexboxMinusculas.checked){
-		   minusculasP.innerHTML = ` Listo | <P style ="color:grey; display:inline-block; font-size :12px;">minusculas : abc</P>`;
+		   minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
 		   minusculas = true;
 	}else{
-		minusculasP.textContent = "Minusculas";
+		minusculasP.innerHTML = `<i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
 		minusculas = false;
 
 	}
@@ -164,10 +164,10 @@ chexboxMinusculas.addEventListener('change', function(){
 })
 chexboxletrasEspeciales.addEventListener('change', function(){ 
 	if (chexboxletrasEspeciales.checked){
-		    letrasExtrasP.innerHTML = ` Listo | <P style ="color:grey; display:inline-block; font-size :12px;">signos : $%!</P>`;
+		    letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
 		    letrasEspeciales = true;
 	}else{
-		letrasExtrasP.textContent = "Signos";
+		letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
 		letrasEspeciales = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked)	validor();
@@ -175,10 +175,10 @@ chexboxletrasEspeciales.addEventListener('change', function(){
 })
 chexboxNumeros.addEventListener('change', function(){  
 	if (chexboxNumeros.checked){
-		    numerosP.innerHTML = ` Listo | <P style ="color:grey; display:inline-block; font-size :12px;">Numeros : 1234</P>`;
+		    numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
 		    numeros = true;
 	}else{
-		numerosP.textContent = "Numeros";
+		numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
 		numeros = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked) validor();

@@ -199,7 +199,8 @@ border-left: none;
 	left: 1%;
 	top: 1%;
 	color: rgb(255, 255, 255);
-	user-select : none
+	user-select : none;
+	font-size: 10px;
 }
 /* ///////////////////// container key */
 #closeContainerKey{
@@ -373,7 +374,8 @@ transition: 0.2s;
 	flex-direction: column;
 }
 .containerInputsSave input {
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	border-radius: 5px;
 	border: none;
 	box-shadow: 0 0 5px rgb(0,0,0, 0.2);
@@ -554,6 +556,10 @@ text-align: left;
 	background:  #262626 ;
 	  width:auto;
 	  text-align: left;
+	  min-width: 19%;
+}
+.config label {
+	cursor: pointer;
 }
 .buttonGuardar{
 background:black;
@@ -911,4 +917,7 @@ input{
 }
 button { 
 	user-select: none;
+}
+input {
+	cursor: pointer;
 }
