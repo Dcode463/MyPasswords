@@ -917,7 +917,14 @@ input{
 }
 button { 
 	user-select: none;
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari and other WebKit browsers */
+	-ms-user-select: none; /* Internet Explorer/Edge */
 }
 input {
+	user-select: none;
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari and other WebKit browsers */
+	-ms-user-select: none; /* Internet Explorer/Edge */
 	cursor: pointer;
 }
