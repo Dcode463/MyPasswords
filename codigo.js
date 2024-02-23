@@ -1,3 +1,4 @@
+navigator.serviceWorker.register('service.js');
 let u = true;
 const rango = document.getElementById('rangeInput');
 const chexboxMayusculas = document.getElementById('checkboxMayusculas')
