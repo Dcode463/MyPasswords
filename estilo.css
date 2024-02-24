@@ -195,12 +195,17 @@ border-left: none;
 	text-align: center;
 }
 #creator {
+	transition: 0.3s;
+text-decoration: none;
 	position: fixed;
 	left: 1%;
 	top: 1%;
 	color: rgb(255, 255, 255);
 	user-select : none;
 	font-size: 10px;
+}
+#creator:hover{
+font-size:13px;
 }
 /* ///////////////////// container key */
 #closeContainerKey{

@@ -1,4 +1,4 @@
-let version = 'version-0.1.4';
+let version = 'version-0.1.6';
 let url = location.host;
 console.log('funcionando')
 const installDocument = () => { // esto es una funcion para registar el cache
@@ -12,6 +12,16 @@ const installDocument = () => { // esto es una funcion para registar el cache
     });
 }
 
+const update = () => new Promise ((resolve)=> {
+  let openCache = caches.keys().then(key => {
+    key.map(cache => {
+     if(version !== cache) {
+       caches.delete(cache)
+     }
+    })
+    resolve('')
+})
+})
 self.addEventListener('install', (event) => { // primer evento install donde llamos a installDocument
     event.waitUntil(installDocument());
 });
@@ -26,7 +36,8 @@ self.addEventListener('activate', (event) => { // activate. cada vez que se actu
         })
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener('fetch', async (e) => {
+ update();
     e.respondWith(
       caches.match(e.request).then(response => {
         return response || fetch(e.request);
