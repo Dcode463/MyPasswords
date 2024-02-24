@@ -145,7 +145,7 @@ chexboxMayusculas.addEventListener('change', function(){
 		    mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
 		    mayusculas = true;
 	}else{
-		mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
+		mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  ABC</P>`;
 		mayusculas = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked) 	validor();
@@ -156,7 +156,7 @@ chexboxMinusculas.addEventListener('change', function(){
 		   minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
 		   minusculas = true;
 	}else{
-		minusculasP.innerHTML = `<i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
+		minusculasP.innerHTML = `<i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  abc</P>`;
 		minusculas = false;
 
 	}
@@ -168,7 +168,7 @@ chexboxletrasEspeciales.addEventListener('change', function(){
 		    letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
 		    letrasEspeciales = true;
 	}else{
-		letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
+		letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:grey; display:inline-block; font-size :12px;">  $%!</P>`;
 		letrasEspeciales = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked)	validor();
@@ -179,7 +179,7 @@ chexboxNumeros.addEventListener('change', function(){
 		    numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
 		    numeros = true;
 	}else{
-		numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
+		numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  1234</P>`;
 		numeros = false;
 	}
 	if(!objectDocument.chexboxOtherName.checked) validor();

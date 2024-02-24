@@ -1,4 +1,4 @@
-let version = 'version-0.1.2';
+let version = 'version-0.1.4';
 let url = location.host;
 console.log('funcionando')
 const installDocument = () => { // esto es una funcion para registar el cache
