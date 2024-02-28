@@ -1,13 +1,12 @@
+// Service of caches
 navigator.serviceWorker.register('service.js');
-let u = true;
+
 const rango = document.getElementById('rangeInput');
 const chexboxMayusculas = document.getElementById('checkboxMayusculas')
 const chexboxMinusculas = document.getElementById('checkboxMinusculas')
 const chexboxNumeros = document.getElementById('checkboxNumeros')
 const chexboxLestrasExtras = document.getElementById('checkboxMiTxt')
 const chexboxletrasEspeciales = document.getElementById('checkboxLestrasEspeciales');
-let contentGenradorItem = document.getElementById('itemPassword');
-let contentGenradorItemTwo = document.getElementById('itemPassword')
 const buttonCopiar = document.getElementById('buttonCopiar');
 const aplicadordecambios = document.getElementById('aplicarCambios');
 const buttonRegenerar = document.getElementById('regenerar')
@@ -17,6 +16,9 @@ const resultado = document.getElementById('resultado')
 const rangeSegurity = document.getElementById('rangeSecurity');
 const commentSegurity = document.getElementById('commentSegurity');
 const allButtons = document.querySelectorAll('.buttons');
+let contentGenradorItem = document.getElementById('itemPassword');
+let contentGenradorItemTwo = document.getElementById('itemPassword')
+let u = true;
 let mayusculas = true;
 let minusculas = false;
 let numeros = false;

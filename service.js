@@ -1,4 +1,4 @@
-let version = 'version-0.1.7';
+let version = 'version-0.2.5';
 
 let url = location.host;
 console.log('funcionando')
@@ -8,21 +8,16 @@ const installDocument = () => { // esto es una funcion para registar el cache
         return cache.addAll([
             `index.html`,
             `estilo.css`,
-            `codigo.js`
+            `codigo.js`,
+            `media/icons/close.png`,
+            `media/errorAnimation.png`,
+            `media/icono.png`,
+            `media/Cancelar invitacion.mp3`,
+            `https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap`,
         ]);
     });
 }
 
-const update = () => new Promise ((resolve)=> {
-  let openCache = caches.keys().then(key => {
-    key.map(cache => {
-     if(version !== cache) {
-       caches.delete(cache)
-     }
-    })
-    resolve('')
-})
-})
 self.addEventListener('install', (event) => { // primer evento install donde llamos a installDocument
     event.waitUntil(installDocument());
 });
@@ -38,7 +33,6 @@ self.addEventListener('activate', (event) => { // activate. cada vez que se actu
 });
 
 self.addEventListener('fetch', async (e) => {
- update();
     e.respondWith(
       caches.match(e.request).then(response => {
         return response || fetch(e.request);
