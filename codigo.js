@@ -132,61 +132,13 @@ checkboxBinari : document.getElementById('checkboxBinari'),
 containerNoResults : document.getElementById('noResults'),
 containerNoResultsTxt : document.getElementById('textNoResults')
 }
-rango.addEventListener('input', ()=> {
-	rangeP.textContent = rango.value;
-})
-rango.addEventListener('input', actulizaraRango);
+
 
 actulizaraRango();
 
 mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
 
 
-chexboxMayusculas.addEventListener('change', function(){ 
-	if (chexboxMayusculas.checked){
-		    mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
-		    mayusculas = true;
-	}else{
-		mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  ABC</P>`;
-		mayusculas = false;
-	}
-	if(!objectDocument.chexboxOtherName.checked) 	validor();
-	actulizaraRango();
-})
-chexboxMinusculas.addEventListener('change', function(){
-	if (chexboxMinusculas.checked){
-		   minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
-		   minusculas = true;
-	}else{
-		minusculasP.innerHTML = `<i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  abc</P>`;
-		minusculas = false;
-
-	}
-	if(!objectDocument.chexboxOtherName.checked)	validor();
-	actulizaraRango();
-})
-chexboxletrasEspeciales.addEventListener('change', function(){ 
-	if (chexboxletrasEspeciales.checked){
-		    letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
-		    letrasEspeciales = true;
-	}else{
-		letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:grey; display:inline-block; font-size :12px;">  $%!</P>`;
-		letrasEspeciales = false;
-	}
-	if(!objectDocument.chexboxOtherName.checked)	validor();
-	actulizaraRango();
-})
-chexboxNumeros.addEventListener('change', function(){  
-	if (chexboxNumeros.checked){
-		    numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
-		    numeros = true;
-	}else{
-		numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  1234</P>`;
-		numeros = false;
-	}
-	if(!objectDocument.chexboxOtherName.checked) validor();
-	actulizaraRango();
-})
 
 const copiar = (element,funcion) => 
 	{ 
@@ -216,7 +168,6 @@ else {
 }
 
 
-buttonCopiar.addEventListener('click', () => copiar(document.getElementById('itemPassword'),false))
 
 function numberAleatorio(){
 	let num = [1,2,3,4,5,6,7,8,9,0];
@@ -688,7 +639,150 @@ for(let a = 0; a < y.length; a++){
 	else if(objectDocument.inputOtherName.element.value.length < 1) generator()
 }
 }
-//////////////////////////////////////////////////// Events
+
+const onchangeCheckboxOthername = funcion => {
+	validor()
+
+if(objectDocument.inputOtherName.element.style.display === 'none' || funcion) {
+	if(funcion) {objectDocument.chexboxOtherName.checked = true}
+objectDocument.inputOtherName.open();
+if(objectDocument.checkboxBinari.checked) {
+generateName('Binari')		
+}
+else if(objectDocument.checkboxEncode.checked) {
+generateName('Encode')	
+}
+rango.setAttribute('disabled', 'true');objectDocument.containerConfigcustomizations.open()}
+else {
+objectDocument.containerConfigcustomizations.close()
+objectDocument.inputOtherName.close();
+resultado.textContent = '';
+if(objectDocument.chexboxOtherName.checked === false) {
+rango.setAttribute('disabled', 'false')
+generator()
+}
+}
+actulizaraRango()
+}
+
+const onchangecheckBoxEncode = () => {
+	objectDocument.checkboxBinariTraductor.checked = false;
+
+	if(objectDocument.checkboxEncode.checked) {
+		objectDocument.checkboxBinari.checked = false
+	    generateName('Encode')
+	}
+else{
+	generateName(undefined)
+}
+}
+
+const copyOfContainerView = () => {
+	contentGenradorItemTwo = objectDocument.passwordView; copiar(document.getElementById('passwordView'))}
+
+objectDocument.borrarView.onclick = async () => {
+	deleteKeys();
+	let requestPasswordsValidor = await requestPasswords()
+if(requestPasswordsValidor.length === 0)closeContainerKey()
+}
+
+const binaryCheck = () => {
+	objectDocument.checkboxBinariTraductor.checked = false;
+	if(objectDocument.checkboxBinari.checked) {
+		objectDocument.checkboxEncode.checked = false
+	generateName('Binari')
+setTimeout(()=>{	rangeP.textContent = resultado.textContent.length},200)
+	}
+	else {
+		generateName('Encode')
+		objectDocument.checkboxEncode.checked = true
+	}
+}
+
+const traductorBinary = () => {
+	if(objectDocument.checkboxBinariTraductor.checked) {
+		resultado.textContent = 'Ingrese un codigo binario';
+		objectDocument.checkboxBinari.checked =  false;
+		objectDocument.checkboxEncode.checked = false;
+	
+	}
+	else {
+		objectDocument.checkboxEncode.checked = true;
+	}
+}
+
+const  functionsOfCheckbox = checkbox => {
+   if(checkbox === 'Minus')
+    {
+		if (chexboxMinusculas.checked){
+			minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
+			minusculas = true;
+	 }else{
+         minusculas = false
+		 minusculasP.innerHTML = `<i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  abc</P>`;
+	 }
+	 if(!objectDocument.chexboxOtherName.checked)	validor();
+	 actulizaraRango();
+   }
+
+   else if (checkbox === 'MAYUS') 
+   {
+	if (chexboxMayusculas.checked){
+		mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
+		mayusculas = true;
+}else{
+	mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  ABC</P>`;
+	mayusculas = false;
+}
+if(!objectDocument.chexboxOtherName.checked) 	validor();
+actulizaraRango();
+   }
+   else if (checkbox === 'signos') {
+	if (chexboxletrasEspeciales.checked){
+		letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
+		letrasEspeciales = true;
+}else{
+	letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:grey; display:inline-block; font-size :12px;">  $%!</P>`;
+	letrasEspeciales = false;
+}
+if(!objectDocument.chexboxOtherName.checked)	validor();
+actulizaraRango();
+   }
+   else if(checkbox === 'Num') {
+	if (chexboxNumeros.checked){
+		numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
+		numeros = true;
+}else{
+	numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  1234</P>`;
+	numeros = false;
+}
+if(!objectDocument.chexboxOtherName.checked) validor();
+actulizaraRango();
+   }
+}
+// ------------> Events
+
+chexboxMinusculas.addEventListener('input',()=>  functionsOfCheckbox('Minus'));
+
+minusculasP.onclick = () => {if(chexboxMinusculas.checked) {chexboxMinusculas.checked = false;functionsOfCheckbox('Minus')}else {chexboxMinusculas.checked = true; functionsOfCheckbox ('Minus')}}
+
+chexboxMayusculas.addEventListener('change', ()=> functionsOfCheckbox('MAYUS'))
+
+mayusculasP.onclick = () => {if(chexboxMayusculas.checked) {chexboxMayusculas.checked = false; functionsOfCheckbox('MAYUS')} else {chexboxMayusculas.checked = true; functionsOfCheckbox('MAYUS')}}
+
+chexboxletrasEspeciales.addEventListener('change', ()=> functionsOfCheckbox('signos'))
+
+letrasExtrasP.onclick = () => {if(chexboxletrasEspeciales.checked) {chexboxletrasEspeciales.checked = false; functionsOfCheckbox('signos')} else {chexboxletrasEspeciales.checked = true; functionsOfCheckbox('signos')}}
+
+chexboxNumeros.addEventListener('change', ()=> functionsOfCheckbox('Num'))
+
+numerosP.onclick = () => {if(chexboxNumeros.checked) {chexboxNumeros.checked = false; functionsOfCheckbox('Num')} else {chexboxNumeros.checked = true; functionsOfCheckbox('Num')}}
+
+buttonCopiar.addEventListener('click', () => copiar(document.getElementById('itemPassword'),false))
+
+rango.addEventListener('input', ()=> {rangeP.textContent = rango.value;actulizaraRango();})
+
+
 buttonRegenerar.onclick = () => {if (o){buttonRegenerar.innerHTML = `Regenerar <i class="fa-solid fa-rotate fa-spin"></i>`; validor(); setTimeout(()=> {buttonRegenerar.innerHTML = `Regenerar <i class="fa-solid fa-rotate"></i></i>`},100)}}
 
 aplicadordecambios.onclick = () => validor()
@@ -709,82 +803,18 @@ objectDocument.exitContainerView.onclick = () => closeViewData();
 
 objectDocument.searchInput.oninput = () => searchKey();
 
-
-objectDocument.inputOtherName.element.onkeyup = () => {
-	if(objectDocument.checkboxBinari.checked) generateName('Binari')
-	else if(objectDocument.checkboxEncode.checked) generateName('Encode')
-else if(objectDocument.checkboxBinariTraductor.checked) e(objectDocument.inputOtherName.element.value)
-    else generateName(undefined) 
-};
+objectDocument.inputOtherName.element.onkeyup = () => {if(objectDocument.checkboxBinari.checked) generateName('Binari'); else if(objectDocument.checkboxEncode.checked) generateName('Encode');else if(objectDocument.checkboxBinariTraductor.checked) e(objectDocument.inputOtherName.element.value);else generateName(undefined)};
 
 objectDocument.inputCommitS.onkeydown = key => {if(key.key === 'Enter') saveKeyFunction()}
 
-objectDocument.copiarView.onclick = () => {contentGenradorItemTwo = objectDocument.passwordView; copiar(document.getElementById('passwordView'))}
+objectDocument.copiarView.onclick = () => copyOfContainerView ()
 
-objectDocument.borrarView.onclick = async () => {
-	deleteKeys();
-	let requestPasswordsValidor = await requestPasswords()
-if(requestPasswordsValidor.length === 0)closeContainerKey()
-}
+objectDocument.chexboxOtherName.onchange = () => onchangeCheckboxOthername (false)
 
-objectDocument.chexboxOtherName.onchange = () => {
-validor()
-	if(objectDocument.inputOtherName.element.style.display === 'none') {
-objectDocument.inputOtherName.open();
-if(objectDocument.checkboxBinari.checked) {
-	generateName('Binari')		
-}
-else if(objectDocument.checkboxEncode.checked) {
-	generateName('Encode')	
-}
-rango.setAttribute('disabled', 'true');objectDocument.containerConfigcustomizations.open()}
-        else {
-			objectDocument.containerConfigcustomizations.close()
-			objectDocument.inputOtherName.close();
-			resultado.textContent = '';
-                 if(objectDocument.chexboxOtherName.checked === false) {
-			rango.setAttribute('disabled', 'false')
-			generator()
+objectDocument.checkboxEncode.onclick = () => onchangecheckBoxEncode ()
 
-}
-}
-		actulizaraRango()
-		// validor()
-}
+objectDocument.checkboxBinari.onclick = () => binaryCheck ()
 
-objectDocument.checkboxEncode.onclick = () => { 
-	objectDocument.checkboxBinariTraductor.checked = false;
+objectDocument.checkboxBinariTraductor.onchange = () => traductorBinary ()
 
-	if(objectDocument.checkboxEncode.checked) {
-		objectDocument.checkboxBinari.checked = false
-	    generateName('Encode')
-	}
-else{
-	generateName(undefined)
-}
-}
-
-objectDocument.checkboxBinari.onclick = () => { 
-objectDocument.checkboxBinariTraductor.checked = false;
-	if(objectDocument.checkboxBinari.checked) {
-		objectDocument.checkboxEncode.checked = false
-	generateName('Binari')
-setTimeout(()=>{	rangeP.textContent = resultado.textContent.length},200)
-	}
-	else {
-		generateName('Encode')
-		objectDocument.checkboxEncode.checked = true
-	}
-}
-
-objectDocument.checkboxBinariTraductor.onchange = () => {
-if(objectDocument.checkboxBinariTraductor.checked) {
-	resultado.textContent = 'Ingrese un codigo binario';
-	objectDocument.checkboxBinari.checked =  false;
-	objectDocument.checkboxEncode.checked = false;
-
-}
-else {
-	objectDocument.checkboxEncode.checked = true;
-}
-}
+objectDocument.labelOtherName.onclick = () =>  onchangeCheckboxOthername (true)

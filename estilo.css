@@ -5,9 +5,7 @@
 .inputconfig{
 	margin: 5px;
 }
-.microchipI{
-	color: ;
-}
+
 #noResults{
 position: absolute;
 left: 50%;
@@ -935,4 +933,7 @@ input {
 	-webkit-user-select: none; /* Safari and other WebKit browsers */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	cursor: pointer;
+}
+.buttonsConfigActivations:hover {
+	color: royalblue;
 }

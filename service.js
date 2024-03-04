@@ -1,4 +1,4 @@
-let version = 'version-0.2.5';
+let version = 'version-0.2.7';
 
 let url = location.host;
 console.log('funcionando')
@@ -12,9 +12,7 @@ const installDocument = () => { // esto es una funcion para registar el cache
             `media/icons/close.png`,
             `media/errorAnimation.png`,
             `media/icono.png`,
-            `media/Cancelar invitacion.mp3`,
-            `https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap`,
-        ]);
+            `media/Cancelar invitacion.mp3`        ]);
     });
 }
 
