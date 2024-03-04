@@ -1,4 +1,4 @@
-let version = 'version-0.2.7';
+let version = 'version-0.2.8';
 
 let url = location.host;
 console.log('funcionando')
