@@ -1,6 +1,14 @@
 // Service of caches
 navigator.serviceWorker.register('service.js');
-
+let version = 'version-0.3.0';
+caches.keys().then(key => { // abrir cahce
+	key.map(cache => {
+	   if(version !== cache) {
+		  caches.delete(cache)
+	   }
+	})
+	   })
+//////////////////////////////////////////////////////////
 const rango = document.getElementById('rangeInput');
 const chexboxMayusculas = document.getElementById('checkboxMayusculas')
 const chexboxMinusculas = document.getElementById('checkboxMinusculas')
@@ -130,8 +138,27 @@ checkboxEncode : document.getElementById('checkboxEncode'),
 checkboxBinari : document.getElementById('checkboxBinari'),
 //container no results
 containerNoResults : document.getElementById('noResults'),
-containerNoResultsTxt : document.getElementById('textNoResults')
+containerNoResultsTxt : document.getElementById('textNoResults'),
+// container Customization Design
+buttonActiveContainerCustomization : document.getElementById('buttonConfig'),
+buttonExitContainerCustomization : document.getElementById('exitContainerPersonalizacion'),
+containerCustomizations : {
+element : document.getElementById('containerPersonalizacion'),
+	open : () => {objectDocument.containerCustomizations.element.style.display = 'flex'},
+	close : () => {objectDocument.containerCustomizations.element.style.display = 'none'}
+},
+contentGenratorBody : {
+element : document.getElementById('contentGenrator'),
+changeStyle : clas => {
+let classBefore = objectDocument.contentGenratorBody.element.classList
+objectDocument.contentGenratorBody.element.classList.replace (classBefore[0], clas)
 }
+},
+
+dayModeBox : document.getElementById('dayMode'),
+defaultModeBox : document.getElementById('defaultModeBox'),
+NigthModeBox : document.getElementById('NigthMode')
+} 
 
 
 actulizaraRango();
@@ -306,42 +333,42 @@ let rangoNameInput =  objectDocument.inputOtherName.element.value.length;
 if(!mayusculas && !minusculas && !letrasEspeciales && !numeros && objectDocument.chexboxOtherName.checked === false) {
 	rangeSegurity.style.width = '0.4%';
 rangeSegurity.style.background = 'black';
-commentSegurity.innerHTML = ' <i class="iconsegurity fa-solid fa-sliders"></i> Configure primero';
+commentSegurity.innerHTML = ' <i id="iconsSegurityId" class="fa-solid fa-sliders"></i>  Configure primero';
 resultado.innerHTML = '';
 }
   else if(valorRango <= 4 ) {
 rangeSegurity.style.width = '5%';
 rangeSegurity.style.background = 'red';
-commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Seguridad Baja'
+commentSegurity.innerHTML = ' <i id="iconsSegurityId" class=" fa-regular fa-face-dizzy"></i> Seguridad Media'
 
   }
   else if (valorRango  >= 5 && valorRango < 12)
 	  {
 		  rangeSegurity.style.width = '25%';
 		  rangeSegurity.style.background = 'rgb(255, 140, 0)';
-		  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-flushed"></i> Seguridad Media'
+		  commentSegurity.innerHTML = '<i id="iconsSegurityId" class="  fa-regular fa-face-flushed"></i> Seguridad Media'
 			}
 	  else if (valorRango >= 12 && valorRango <= 15){
 		  rangeSegurity.style.width = '35%';
 		  rangeSegurity.style.background = 'rgb(255, 213, 0)';
-		  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-grin"></i> Seguridad Alta' 
+		  commentSegurity.innerHTML = '<i id="iconsSegurityId" class="  fa-regular fa-face-grin"></i> Seguridad Alta' 
 
 	  }
 	  else if(valorRango >= 16 && valorRango <= 30) {
 		  rangeSegurity.style.width = '45%';
 		  rangeSegurity.style.background = 'rgb(221, 255, 0)';
-		  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-grin-beam"></i> Seguridad Super Alta'
+		  commentSegurity.innerHTML = '<i id="iconsSegurityId" class="  fa-regular fa-face-grin-beam"></i> Seguridad Super Alta'
 	  }
 	  else if(valorRango >= 31 && valorRango <= 49) { 
 		  rangeSegurity.style.width = '75%';
 		  rangeSegurity.style.background = 'rgb(132, 255, 0)';
-		  commentSegurity.innerHTML = '<i class="iconsegurity fa-solid fa-ghost"></i> Modo Ghost'
+		  commentSegurity.innerHTML = '<i id="iconsSegurityId" class=" fa-solid fa-ghost"></i> Modo Ghost'
 
 	  }
 	  else if(valorRango >= 50){
 		  rangeSegurity.style.width = '100%';
 		  rangeSegurity.style.background = 'rgb(0, 255, 81)';
-		  commentSegurity.innerHTML = ' <i class="iconsegurity fa-solid fa-user-secret"></i> Modo Anonimus'
+		  commentSegurity.innerHTML = ' <i id="iconsSegurityId" class=" fa-solid fa-user-secret"></i> Modo Anonimus'
 
 	  }
 	  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -357,36 +384,36 @@ commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"><
 		if(rangoNameInput <= 4 ) {
 			rangeSegurity.style.width = '5%';
 			rangeSegurity.style.background = 'red';
-			commentSegurity.innerHTML = ' <i class="iconsegurity fa-regular fa-face-dizzy"></i> Seguridad baja'
+			commentSegurity.innerHTML = ' <i class=" fa-regular fa-face-dizzy"></i> Seguridad baja'
 			
 			  }
 			  else if (rangoNameInput  >= 5 && rangoNameInput < 12)
 				  {
 					  rangeSegurity.style.width = '25%';
 					  rangeSegurity.style.background = 'rgb(255, 140, 0)';
-					  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-flushed"></i> Seguridad Media'
+					  commentSegurity.innerHTML = '<i class="  fa-regular fa-face-flushed"></i> Seguridad Media'
 						}
 				  else if (rangoNameInput >= 12 && rangoNameInput <= 15){
 					  rangeSegurity.style.width = '35%';
 					  rangeSegurity.style.background = 'rgb(255, 213, 0)';
-					  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-grin"></i> Seguridad Alta' 
+					  commentSegurity.innerHTML = '<i class="  fa-regular fa-face-grin"></i> Seguridad Alta' 
 			
 				  }
 				  else if(rangoNameInput >= 16 && rangoNameInput <= 30) {
 					  rangeSegurity.style.width = '45%';
 					  rangeSegurity.style.background = 'rgb(221, 255, 0)';
-					  commentSegurity.innerHTML = '<i class=" iconsegurity fa-regular fa-face-grin-beam"></i> Seguridad Super Alta'
+					  commentSegurity.innerHTML = '<i class="  fa-regular fa-face-grin-beam"></i> Seguridad Super Alta'
 				  }
 				  else if(rangoNameInput >= 31 && rangoNameInput <= 49) { 
 					  rangeSegurity.style.width = '75%';
 					  rangeSegurity.style.background = 'rgb(132, 255, 0)';
-					  commentSegurity.innerHTML = '<i class="iconsegurity fa-solid fa-ghost"></i> Modo Ghost'
-			
+					  commentSegurity.innerHTML = '<i class=" fa-solid fa-ghost"></i> Modo Ghost'
+
 				  }
 				  else if(rangoNameInput >= 50){
 					  rangeSegurity.style.width = '100%';
 					  rangeSegurity.style.background = 'rgb(0, 255, 81)';
-					  commentSegurity.innerHTML = ' <i class="iconsegurity fa-solid fa-user-secret"></i> Modo Anonimus'
+					  commentSegurity.innerHTML = ' <i class=" fa-solid fa-user-secret"></i> Modo Anonimus'
 			
 				  }
 	  } else  {
@@ -715,7 +742,7 @@ const  functionsOfCheckbox = checkbox => {
    if(checkbox === 'Minus')
     {
 		if (chexboxMinusculas.checked){
-			minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  abc</P>`;
+			minusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:; display:inline-block; font-size :12px;">  abc</P>`;
 			minusculas = true;
 	 }else{
          minusculas = false
@@ -728,7 +755,7 @@ const  functionsOfCheckbox = checkbox => {
    else if (checkbox === 'MAYUS') 
    {
 	if (chexboxMayusculas.checked){
-		mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  ABC</P>`;
+		mayusculasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:; display:inline-block; font-size :12px;">  ABC</P>`;
 		mayusculas = true;
 }else{
 	mayusculasP.innerHTML =` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  ABC</P>`;
@@ -739,7 +766,7 @@ actulizaraRango();
    }
    else if (checkbox === 'signos') {
 	if (chexboxletrasEspeciales.checked){
-		letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  $%!</P>`;
+		letrasExtrasP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:; display:inline-block; font-size :12px;">  $%!</P>`;
 		letrasEspeciales = true;
 }else{
 	letrasExtrasP.innerHTML = `  <i class="fa-solid fa-xmark"></i> <P style ="color:grey; display:inline-block; font-size :12px;">  $%!</P>`;
@@ -750,7 +777,7 @@ actulizaraRango();
    }
    else if(checkbox === 'Num') {
 	if (chexboxNumeros.checked){
-		numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:white; display:inline-block; font-size :12px;">  1234</P>`;
+		numerosP.innerHTML = ` <i class="fa-solid fa-arrow-right"></i>  <P style ="color:; display:inline-block; font-size :12px;">  1234</P>`;
 		numeros = true;
 }else{
 	numerosP.innerHTML = ` <i class="fa-solid fa-xmark"></i>  <P style ="color:grey; display:inline-block; font-size :12px;">  1234</P>`;
@@ -759,6 +786,60 @@ actulizaraRango();
 if(!objectDocument.chexboxOtherName.checked) validor();
 actulizaraRango();
    }
+}
+// --> customizations 
+const functionOfCustomizations = desing => { 
+if(objectDocument.chexboxOtherName.checked) {
+	objectDocument.containerConfigcustomizations.close()
+	objectDocument.inputOtherName.close();
+	objectDocument.chexboxOtherName.checked = false;
+	onchangeCheckboxOthername (false)
+}
+      if(desing === 'day') 
+	  { 
+		objectDocument.contentGenratorBody.changeStyle('modeDay'); 
+		configID.classList.replace(configID.classList[1],'daymodeConfig');
+		iconsSegurityId.classList.replace(iconsSegurityId.classList[0], 'ModeDaySeguriti')
+		contentGenradorItem.classList.replace(contentGenradorItem.classList[0], 'modeDayItemPassword')
+		a.classList.replace(a.classList[0],'modeDayContainerPersonalizacion');
+		// objectDocument.sobrePonerBody.close(); objectDocument.containerCustomizations.close()
+		console.log(objectDocument.containerKeys.element.classList[2])
+		containerInputsSave.classList.replace(containerInputsSave.classList[1],'daymodeContainerSave')
+		objectDocument.buttonCancelSave.classList.replace(objectDocument.buttonCancelSave.classList[1], 'buttonModeDay')
+        objectDocument.containerKeys.element.classList.replace(objectDocument.containerKeys.element.classList[2], 'dayModeContainerKey');
+		passwordView.style.color = 'black';
+        buttonConfig.style.color = 'black'
+	}
+else if(desing === 'Default') 
+{
+	objectDocument.contentGenratorBody.changeStyle('defaultMode'); 
+	configID.classList.replace(configID.classList[1],'defaultConfig'); 
+	iconsSegurityId.classList.replace(iconsSegurityId.classList[0], 'ModeDaySeguriti')
+	contentGenradorItem.classList.replace(contentGenradorItem.classList[0], 'defaultModePassword')
+	a.classList.replace(a.classList[0],'modeDefaultContainerPersonalizacion');
+	// objectDocument.sobrePonerBody.close(); objectDocument.containerCustomizations.close()
+	containerInputsSave.classList.replace(containerInputsSave.classList[1],'defaultModeContainerSave')
+	objectDocument.buttonCancelSave.classList.replace(objectDocument.buttonCancelSave.classList[1], 'modedefault')
+	objectDocument.containerKeys.element.classList.replace(objectDocument.containerKeys.element.classList[2], 'defaultModeContainerKey');
+	passwordView.style.color = 'white';
+	buttonConfig.style.color = 'white';
+}
+else if (desing === 'Nigth')
+{
+	objectDocument.contentGenratorBody.changeStyle('nightModeContentBody'); 
+	configID.classList.replace(configID.classList[1],'defaultConfig'); 
+	iconsSegurityId.classList.replace(iconsSegurityId.classList[0], 'ModeDaySeguriti')
+	contentGenradorItem.classList.replace(contentGenradorItem.classList[0], 'defaultModePassword')
+	a.classList.replace(a.classList[0],'modeDefaultContainerPersonalizacion');
+	// objectDocument.sobrePonerBody.close(); objectDocument.containerCustomizations.close()
+	containerInputsSave.classList.replace(containerInputsSave.classList[1],'defaultModeContainerSave')
+	objectDocument.buttonCancelSave.classList.replace(objectDocument.buttonCancelSave.classList[1], 'modedefaultNigth')
+	objectDocument.containerKeys.element.classList.replace(objectDocument.containerKeys.element.classList[2], 'defaultModeContainerKey');
+	passwordView.style.color = 'white';
+	buttonConfig.style.color = 'white';
+}
+if(chexboxMinusculas.checked) {chexboxMinusculas.checked = false;functionsOfCheckbox('Minus')}else {chexboxMinusculas.checked = true; functionsOfCheckbox ('Minus')}
+localStorage.setItem('desing',desing);
 }
 // ------------> Events
 
@@ -818,3 +899,15 @@ objectDocument.checkboxBinari.onclick = () => binaryCheck ()
 objectDocument.checkboxBinariTraductor.onchange = () => traductorBinary ()
 
 objectDocument.labelOtherName.onclick = () =>  onchangeCheckboxOthername (true)
+
+objectDocument.buttonActiveContainerCustomization.onclick = () => {objectDocument.sobrePonerBody.element.classList.replace('sobreponerReponsive','sobreponerReponsiveActive');objectDocument.sobrePonerBody.open() ;objectDocument.containerCustomizations.open()};
+
+objectDocument.buttonExitContainerCustomization.onclick = () => {objectDocument.sobrePonerBody.element.classList.replace('sobreponerReponsiveActive','sobreponerReponsive');objectDocument.sobrePonerBody.close(); objectDocument.containerCustomizations.close()};
+
+objectDocument.dayModeBox.onclick = () => functionOfCustomizations ('day')
+
+objectDocument.defaultModeBox.onclick = () => functionOfCustomizations ('Default')
+
+objectDocument.NigthModeBox.onclick = () => functionOfCustomizations ('Nigth')
+
+functionOfCustomizations(localStorage.getItem('desing'))

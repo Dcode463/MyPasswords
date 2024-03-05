@@ -11,7 +11,6 @@ position: absolute;
 left: 50%;
 top: 50%;
 transform: translate(-50%,-50%);
-color: white;
 width: 100%;
   text-align: center;
 }
@@ -124,6 +123,105 @@ border-radius: 5px;
 	width: 100%;
 	animation: animationAlertTXT 0.8s ease-in-out;
 }
+/* /////////////////////////////////////////////////////////////////////////////////////////// */
+/* //// default  */
+.defaultMode{
+	position: relative;
+	padding: 50px;
+	background-image: linear-gradient(to right top, #5a10ac, #512fbe, #4444ce, #3256dd, #1267eb);
+	height: 100vh;
+	overflow-x: hidden;
+}
+.nightModeContentBody{
+
+	position: relative;
+	padding: 50px;
+	background-color: #1c1c1c;
+	height: 100vh;
+	overflow-x: hidden;
+}
+.defaultModeContainerKey {
+	background-color:#1c2833!important;
+	color: white;
+}
+.defaultConfig{ 
+	background:  #262626 ;
+
+}
+.defaultModeContainerSave {
+	background-color: white;
+
+}
+.defaultModePassword {
+	color: white;
+}
+.modeDefaultContainerPersonalizacion {
+	color:white;
+}
+.modedefault {
+	background-color: #1c1c1c;
+	color: white
+}
+.modedefaultNigth {
+	background-color: white;
+	color: black!important
+}
+/* daymode */
+.modeDayItemPassword {
+	color: black;
+}
+
+.modeDay {
+	position: relative;
+	padding: 50px;
+	background-image: white;
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+.daymodeConfig{
+	background-color: #edebeb;
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+	color: black!important;
+}
+.ModeDaySeguriti{
+	 color: royalblue!important;
+}
+#iconsSegurityId {
+	font-size: 25px;
+}
+
+.modeDayContainerPersonalizacion {
+	color: black;
+}
+
+.daymodeContainerSave {
+	padding: 10px;
+	box-shadow:0 0 5px rgba(64, 62, 62, 0.6);
+  padding: 10px;
+}
+.daymodeContainerSave input {
+	box-shadow:0 0 5px rgba(64, 62, 62, 0.6);
+}
+.buttonModeDay {
+	background-color: black;
+	color: white;
+}
+
+
+.dayModeContainerKey {
+  background-color: white!important;
+	box-shadow:0 0 5px rgba(64, 62, 62, 0.3);
+	color: #1c1c1c!important;
+
+
+}
+.dayModeContainerKey input {
+	box-shadow:0 0 5px rgba(64, 62, 62, 0.3)!important;
+	color: black!important;
+	border-left: black;
+}
+/* ///////////////////////////////////////////////////////////////////// */
 @keyframes animationAlertTXT {
 	0%{
 		display: none;
@@ -272,7 +370,7 @@ font-size:13px;
 	transform: translate(-50%,-50%);
 	padding: 10px;
 	padding-left: 60px;
-	background-color:#1c2833;
+
 	width:auto;
 	min-width: 60%;
 	max-width: 100%;
@@ -318,6 +416,66 @@ font-size:13px;
 .buttons:hover{
 	background: royalblue;
 	color: white; 
+}
+#buttonConfig{
+	font-size: 20px;
+	z-index: 30000 ;
+    color: white;
+	position: absolute;
+	right: 3%;
+	background-color: transparent;
+	border: none; 
+	padding: 10px;
+	border-radius: 5px;
+	top: 12%;
+	cursor: pointer;
+}
+.boxColorsBackground{
+	display: inline-block;
+	background-color:rgba(30, 30, 30, 0.3);
+  color: grey;
+	width: 100%;
+	margin: 10px;
+	/* box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); */
+	border-radius: 15px;
+	padding: 15px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+#exitContainerPersonalizacion {
+	position: absolute;
+	right: 1%;
+	bottom: -10%;
+	padding: 10px;
+	background-color: #1c1c1c;
+	color: white;
+	border:none;
+	border-radius: 15px;
+	cursor: pointer;
+}
+#exitContainerPersonalizacion:hover {  z-index: 5000000;
+border: solid 2px white;}
+.boxColorsBackground:hover {
+	color: white;
+	scale: 110%;
+	background-color:rgba(30, 30, 30, 0.6)
+}
+.boxColorsBackground img {
+	width: 100%;
+	border-radius: 15px;
+}
+#containerPersonalizacion { z-index: 50000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background-color: transparent;
+	padding: 30px;
+	border-radius: 5px;
+	width: 80%;
 }
 #buttonMenuKey {
 	font-size: 25px;
@@ -372,7 +530,6 @@ transition: 0.2s;
 .containerInputsSave {
 	border-radius: 15px;
     padding: 10px;
-	background-color: white;
 	margin-bottom: 10%;
 	display: flex;
 	justify-content: center;
@@ -392,8 +549,7 @@ transition: 0.2s;
 
 }
 #saveCancel{
-	background-color: white;
-	color: black;
+
 	opacity: 0.9;
 }
 #saveCancel:hover{
@@ -545,25 +701,18 @@ text-align: left;
 .button:hover{
 	background:  #4646c1 ;
 }
-.contentFor{
-	position: relative;
-	padding: 50px;
-	background-image: linear-gradient(to right top, #5a10ac, #512fbe, #4444ce, #3256dd, #1267eb);
-	height: 100vh;
-	overflow-x: hidden;
-}
+
 .config{
-	transition: 0.5s;
 	z-index: 1000;
 	position: absolute;
 	border-radius: 15px;
 	padding: 20px;
 	color: white;
-	background:  #262626 ;
 	  width:auto;
 	  text-align: left;
 	  min-width: 19%;
 }
+
 .config label {
 	cursor: pointer;
 }
@@ -662,7 +811,7 @@ display: inline-block;
 	padding: 20px;
 
 	  width: auto;
-	  text-align: left;
+	   text-align: left;
 }
 .contentGenratorValue{
 	border: none;
@@ -700,7 +849,23 @@ color: white;
 }
 
 }
+@media only screen and (max-width:936px){
+	#containerPersonalizacion {
+		width: 100%!important;
+	}
+}
 @media only screen and (max-width:686px){
+#containerPersonalizacion {
+	width: 100%!important;
+   flex-direction: column-reverse;
+   padding-top: 30px;
+   height: 80%;
+}
+.boxColorsBackground{
+	width: 70%;
+	height: 60%;
+	padding-bottom: 0;
+}
 
 	#passwordView{
 		color: white;
@@ -787,13 +952,24 @@ color: white;
 }
 
 #containerKeys {
-	background-color: #1c1c1c!important;
 	animation: none;
     height: 100%;
 	width: 100%;
 	padding-left: 5%;
 	max-height: 100%;
+
 }
+.defaultModeContainerKey{
+	background-color: #1c1c1c!important;
+}
+/* .defaultMode{
+	background-color: #1c1c1c!important;
+
+}
+.modeDay {
+	background-color: white!important;
+
+} */
 .push {
 	padding: 5px;
 	max-width: 100%;
@@ -904,9 +1080,10 @@ input{
     bottom: -40%;
 
 }
-.contentFor{
+.defaultMode{
 	background-image: none;
-	background-color: #1c1c1c!important;
+	background-image: linear-gradient(to right top, #5a10ac, #512fbe, #4444ce, #3256dd, #1267eb);
+
 	padding: 50px;
 	height: 100vh;
 }
@@ -915,8 +1092,17 @@ input{
 	background-color: white;
 	color: black;
 }
+.dayModeContainerKey{
+	background-color: white!important;
+}
 }
 @media only screen and (max-width:306px){
+	.defaultMode{
+		background-color: #1c1c1c!important;
+	}
+	.modeDay {
+		background-color: white!important;
+	}
 	#containerSave {
 		width: 100%;
 	}
