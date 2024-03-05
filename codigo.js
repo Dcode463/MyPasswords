@@ -1,13 +1,6 @@
 // Service of caches
 navigator.serviceWorker.register('service.js');
-let version = 'version-0.3.1';
-caches.keys().then(key => { // abrir cahce
-	key.map(cache => {
-	   if(version !== cache) {
-		  caches.delete(cache)
-	   }
-	})
-	   })
+
 //////////////////////////////////////////////////////////
 const rango = document.getElementById('rangeInput');
 const chexboxMayusculas = document.getElementById('checkboxMayusculas')
