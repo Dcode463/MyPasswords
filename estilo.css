@@ -860,6 +860,8 @@ color: white;
 	#exitContainerPersonalizacion {
 left: 10%;
 right:auto;
+bottom: auto;
+top: -10%;
 	}
 #containerPersonalizacion {
 	width: 100%!important;
