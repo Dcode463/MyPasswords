@@ -862,9 +862,17 @@ color: white;
    height: 80%;
 }
 .boxColorsBackground{
-	width: 70%;
+	width: 50%;
 	height: 60%;
 	padding-bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.boxColorsBackground img {
+	width: 100%;
+	margin: 10px;
 }
 
 	#passwordView{
@@ -1096,6 +1104,11 @@ input{
 	background-color: white!important;
 }
 }
+@media only screen and (max-width : 478px) {
+	.boxColorsBackground {
+		width: 80%;
+	}
+}
 @media only screen and (max-width:306px){
 	.defaultMode{
 		background-color: #1c1c1c!important;
@@ -1104,6 +1117,9 @@ input{
 		background-color: white!important;
 	}
 	#containerSave {
+		width: 100%;
+	}
+	.boxColorsBackground {
 		width: 100%;
 	}
 }
